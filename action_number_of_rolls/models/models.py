@@ -89,7 +89,7 @@ class Picking(models.Model):
             return res
         
 class MrpProductionWorkcenterLine(models.Model):
-    _inherit = 'mrp.production'
+    _inherit = 'mrp.workorder'
     
     production_destiation_location = fields.Many2one(string="Destination Location",
                                                       readonly=True,

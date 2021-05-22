@@ -75,7 +75,7 @@
     
     <record id="view_destination_location_in_WO" model="ir.ui.view">
             <field name="name">view.destination.location.in.WO</field>
-            <field name="model">mrp.production</field>
+            <field name="model">mrp.workorder</field>
             <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='production_id']" position="after">
