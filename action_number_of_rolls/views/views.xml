@@ -73,15 +73,15 @@
           </field>
     </record>
     
-    <record id="view_destination_location_in_WO" model="ir.ui.view">
-            <field name="name">view.destination.location.in.WO</field>
+    <record id="view_destination_location_in_MO" model="ir.ui.view">
+            <field name="name">view.destination.location.in.MO</field>
             <field name="model">mrp.workorder</field>
-            <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='production_id']" position="after">
+<!--                 <xpath expr="//field[@name='production_id']" position="after">
                       <field name="production_destiation_location"/>
-                </xpath>
-              <xpath expr="//field[@name='is_produced']" position="before">
+                </xpath> -->
+              <xpath expr="//field[@name='product_qty']" position="after">
                        <field name="number_of_rolls" attrs="{'readonly': [('rolls_post_visiblity', '=', True)]}"/>
                 </xpath>
               <xpath expr="//header[1]" position="inside">
