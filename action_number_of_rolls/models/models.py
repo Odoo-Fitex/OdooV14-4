@@ -91,9 +91,9 @@ class Picking(models.Model):
 class MrpProductionWorkcenterLine(models.Model):
     _inherit = 'mrp.production'
     
-    production_destiation_location = fields.Many2one(string="Destination Location",
-                                                      readonly=True,
-                                                      related='production_id.location_dest_id')
+#     production_destiation_location = fields.Many2one(string="Destination Location",
+#                                                       readonly=True,
+#                                                       related='production_id.location_dest_id')
     rolls_post_visiblity = fields.Boolean(string="Rolls Posted",default=False)
     number_of_rolls =  fields.Float(string="Number Of Rolls")
     new_number_of_rolls_dest = fields.Float(compute='do_roll_finish')
@@ -102,14 +102,14 @@ class MrpProductionWorkcenterLine(models.Model):
         for roll in self:
             roll_count_in_dest_location = self.env['stock.quant'].search([('product_id', '=', roll.product_id.id),
                                                                           ('lot_id', '=', roll.finished_lot_id.id),
-                                                                          ('location_id', '=', roll.production_destiation_location.id)])
+                                                                          ('location_id', '=', roll.location_dest_id.id)])
             if roll_count_in_dest_location.number_of_rolls:
                 self.new_number_of_rolls_dest = roll_count_in_dest_location.number_of_rolls + roll.number_of_rolls
                 roll_count_in_dest_location.write({'number_of_rolls': roll.new_number_of_rolls_dest})
                 roll.rolls_post_visiblity=True
             else:
                 quant = self.env['stock.quant'].create({'product_id':roll.product_id.id,
-                                                        'location_id':roll.production_destiation_location.id,
+                                                        'location_id':roll.location_dest_id.id,
                                                         'lot_id':roll.finished_lot_id.id
                                                         })
                 quant.number_of_rolls = roll.number_of_rolls
