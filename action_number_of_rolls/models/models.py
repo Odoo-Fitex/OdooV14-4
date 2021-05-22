@@ -101,7 +101,7 @@ class MrpProductionWorkcenterLine(models.Model):
     def do_roll_finish(self):
         for roll in self:
             roll_count_in_dest_location = self.env['stock.quant'].search([('product_id', '=', roll.product_id.id),
-                                                                          ('lot_id', '=', roll.finished_lot_id.id),
+                                                                          ('lot_id', '=', roll.lot_producing_id.id),
                                                                           ('location_id', '=', roll.location_dest_id.id)])
             if roll_count_in_dest_location.number_of_rolls:
                 self.new_number_of_rolls_dest = roll_count_in_dest_location.number_of_rolls + roll.number_of_rolls
@@ -110,7 +110,7 @@ class MrpProductionWorkcenterLine(models.Model):
             else:
                 quant = self.env['stock.quant'].create({'product_id':roll.product_id.id,
                                                         'location_id':roll.location_dest_id.id,
-                                                        'lot_id':roll.finished_lot_id.id
+                                                        'lot_id':roll.lot_producing_id.id
                                                         })
                 quant.number_of_rolls = roll.number_of_rolls
                 quant.write({'number_of_rolls': roll.number_of_rolls})
