@@ -81,9 +81,9 @@
 <!--                 <xpath expr="//field[@name='production_id']" position="after">
                       <field name="production_destiation_location"/>
                 </xpath> -->
-              <xpath expr="//field[@name='bom_id']" position="before">
+<!--               <xpath expr="//field[@name='bom_id']" position="before">
                        <field name="number_of_rolls" attrs="{'readonly': [('rolls_post_visiblity', '=', True)]}"/>
-                </xpath>
+                </xpath> -->
               <xpath expr="//header[1]" position="inside">
                 <field name="rolls_post_visiblity" invisible="1"/>
                <button name="do_roll_finish" type="object" string="Post Rolls" class="btn-primary" attrs="{'invisible': [('rolls_post_visiblity', '=', True)]}"/>      
