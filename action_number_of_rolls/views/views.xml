@@ -81,7 +81,7 @@
 <!--                 <xpath expr="//field[@name='production_id']" position="after">
                       <field name="production_destiation_location"/>
                 </xpath> -->
-              <xpath expr="//field[@name='lot_producing_id']" position="before">
+              <xpath expr="//field[@name='bom_id']" position="before">
                        <field name="number_of_rolls" attrs="{'readonly': [('rolls_post_visiblity', '=', True)]}"/>
                 </xpath>
               <xpath expr="//header[1]" position="inside">
