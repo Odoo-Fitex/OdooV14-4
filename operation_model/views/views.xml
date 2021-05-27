@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+
+    <!--record id="view_operation_routing_view" model="ir.ui.view">
+        <field name="name">view.operation.routing.view</field>
+        <field name="model">router.operation</field>
+        <field name="arch" type="xml">  
+          <form>
+                    <field name="name"/>
+                    <field name="company_id"/> 
+                    <field name="workcenter_id" string="Operation Workcenter"/>
+                    <field name="time_cycle_manual" string="Operation Duration"/>
+              </form>
+        </field>
+    </record-->
+    
+  <record id="view_operation_routing_name" model="ir.ui.view">
+        <field name="name">view.operation.routing.name</field>
+        <field name="model">mrp.routing.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='name']" position="before">
+             
+                    <field name="operation_name"/>
+                    <field name="company_id"/>
+                    <field name="workcenter_id" string="Operation Workcenter"/>
+                    <field name="time_cycle_manual" string="Operation Duration"/>
+        </xpath>
+        </field>
+    </record>
+    
+    <record id="view_operation_routing_name_tree" model="ir.ui.view">
+        <field name="name">view.operation.routing.name.tree</field>
+        <field name="model">mrp.routing.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_workcenter_tree_view"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='name']" position="before">
+                    <field name="operation_name"/>
+                    <field name="company_id"/>
+        </xpath>
+          
+          <xpath expr="//tree[1]" position="attributes">
+                <attribute name="editable">bottom</attribute>
+        </xpath>
+          
+          
+        </field>
+    </record>
+ 
+
+   </data>
+</odoo>
