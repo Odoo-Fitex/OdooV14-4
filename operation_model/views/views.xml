@@ -14,7 +14,7 @@
         </field>
     </record-->
     
-  <record id="view_operation_routing_name" model="ir.ui.view">
+<!--   <record id="view_operation_routing_name" model="ir.ui.view">
         <field name="name">view.operation.routing.name</field>
         <field name="model">mrp.routing.workcenter</field>
         <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view"/>
@@ -46,7 +46,7 @@
           
         </field>
     </record>
- 
+  -->
 
    </data>
 </odoo>
