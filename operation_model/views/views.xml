@@ -1,7 +1,7 @@
 <odoo>
   <data>
 
-    record id="view_operation_routing_view" model="ir.ui.view">
+    <record id="view_operation_routing_view" model="ir.ui.view">
         <field name="name">view.operation.routing.view</field>
         <field name="model">router.operation</field>
         <field name="arch" type="xml">  
