@@ -12,7 +12,7 @@
                     <field name="time_cycle_manual" string="Operation Duration"/>
               </tree>
         </field>
-    </record
+    </record>
     
   <record id="view_operation_routing_name" model="ir.ui.view">
         <field name="name">view.operation.routing.name</field>
