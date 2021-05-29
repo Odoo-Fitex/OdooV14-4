@@ -47,21 +47,20 @@
         </field>
     </record>
     
-<!--     <record id="action_operation_name_menu" model="ir.actions.act_window">
+    <record id="action_operation_name_menu" model="ir.actions.act_window">
             <field name="name">Operation Name</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">router.operation</field>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="stock.view_operation_routing_view"/>    
-            <field name="context">{"search_default_Negative Stock": 1}</field>
+            <field name="view_id" ref="	operation_model.view_operation_routing_view"/>    
         </record>
     
      <menuitem
-            name="Minus Quantities"
-            id="menu_action_Minus_Quantities"
-            action="action_inventory_minus_report"
-            parent="stock.menu_warehouse_report" 
-            sequence="5"/> -->
+            name="Operation"
+            id="menu_action_operation_name"
+            action="action_operation_name_menu"
+            parent="stock.menu_action_inventory_form" 
+            sequence="5"/>
 
    </data>
 </odoo>
