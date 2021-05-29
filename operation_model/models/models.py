@@ -23,9 +23,9 @@ class action_routing_operation_name(models.Model):
     
     company_id = fields.Many2one( string="Company",
         compute='onchange_routing_operation_name')
-#     company_id2 = fields.Many2one(
-#         'res.company', 'Company',
-#         readonly=True, related='routing_id.company_id', store=True)
+    company_id2 = fields.Many2one(
+        'res.company', 'Company',
+        readonly=True, related='bom_id.company_id', store=True)
     workcenter_id = fields.Many2one('mrp.workcenter', 'Work Center',
                                      readonly=True, related='operation_name.workcenter_id')
     time_cycle_manual = fields.Float(
@@ -35,6 +35,7 @@ class action_routing_operation_name(models.Model):
 
     @api.onchange('operation_name')
     def onchange_routing_operation_name(self):
+     for rec in self:
         if self.operation_name:
             self.name = self.operation_name.name
 #             self.company_id = self.company_id2
@@ -42,6 +43,6 @@ class action_routing_operation_name(models.Model):
             self.name = 0
             self.company_id = 0
             
-class action_bom_name(models.Model):
-    _inherit = 'mrp.bom'
-    name = fields.Many2one('mrp.routing.workcenter')
+# class action_bom_name(models.Model):
+#     _inherit = 'mrp.bom'
+#     name = fields.Many2one('mrp.routing.workcenter')
