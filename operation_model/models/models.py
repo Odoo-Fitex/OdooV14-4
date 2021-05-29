@@ -37,7 +37,7 @@ class action_routing_operation_name(models.Model):
     def onchange_routing_operation_name(self):
         if self.operation_name:
             self.name = self.operation_name.name
-            self.company_id = self.company_id2
+#             self.company_id = self.company_id2
         else:
             self.name = 0
             self.company_id = 0
