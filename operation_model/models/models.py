@@ -6,15 +6,14 @@ class action_routing_operation(models.Model):
     _name = 'router.operation'
  
     name = fields.Char(string="Operation Name")
-    workcenter_id = fields.Many2one('mrp.workcenter', 'Work Center', required=True, check_company=True, store=True)
+    company_id = fields.Many2one(
+        'res.company', 'Company', store=True)
     time_cycle_manual = fields.Float(
         'Manual Duration', default=60,
         help="Time in minutes. Is the time used in manual mode, or the first time supposed in real time when there are not any work orders yet.")
-    company_id = fields.Many2one(
-        'res.company', 'Company', store=True)
+    workcenter_id = fields.Many2one('mrp.workcenter', 'Work Center', required=True, check_company=True, store=True)
 
-
-
+    
 class action_routing_operation_name(models.Model):
     _inherit = 'mrp.routing.workcenter'
     
