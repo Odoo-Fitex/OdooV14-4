@@ -59,7 +59,7 @@
             name="Operation"
             id="menu_action_operation_name"
             action="action_operation_name_menu"
-            parent="stock.menu_action_inventory_form" 
+            parent="mrp.menu_mrp_manufacturing" 
             sequence="5"/>
 
    </data>
