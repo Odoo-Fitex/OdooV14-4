@@ -36,12 +36,12 @@ class action_routing_operation_name(models.Model):
     @api.onchange('operation_name')
     def onchange_routing_operation_name(self):
      for rec in self:
-        if self.operation_name:
-            self.name = self.operation_name.name
-            self.company_id = self.company_id2
+        if rec.operation_name:
+            rec.name = rec.operation_name.name
+            rec.company_id = rec.company_id2
         else:
-            self.name = 0
-            self.company_id = 0
+            rec.name = 0
+            rec.company_id = 0
             
 # class action_bom_name(models.Model):
 #     _inherit = 'mrp.bom'
